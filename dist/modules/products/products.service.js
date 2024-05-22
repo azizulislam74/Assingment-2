@@ -19,7 +19,12 @@ const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_modules_1.productS.find();
     return result;
 });
+const getProductsById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_modules_1.productS.findById(id);
+    return result;
+});
 exports.ProductService = {
     createProduct,
     getAllProducts,
+    getProductsById,
 };
