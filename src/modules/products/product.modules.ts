@@ -32,6 +32,6 @@ const productSchema = new Schema({
     inventory: iProductSchema,
 });
 
-const Product = mongoose.model('Product', productSchema);
+export const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;

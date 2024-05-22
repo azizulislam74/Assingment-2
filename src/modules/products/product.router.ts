@@ -7,8 +7,12 @@ import { Response,  Request } from 'express';
 const router = express.Router();
 
 router.post ('/', async (req : Request, res : Response) => {
-console.log(req.body);
-// const result = await Product.create(req.body)
+const result = await Product.create(req.body);
+res.json({
+    success :false,
+    message:'Product created successfully!',
+    data: result,
+});
 
 
 });

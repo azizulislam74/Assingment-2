@@ -13,10 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductRoutes = void 0;
+const product_modules_1 = require("./product.modules");
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
-    // const result = await Product.create(req.body)
+    const result = yield product_modules_1.Product.create(req.body);
+    res.json({
+        success: false,
+        message: 'Product created successfully!',
+        data: result,
+    });
 }));
 exports.ProductRoutes = router;
