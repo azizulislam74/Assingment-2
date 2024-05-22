@@ -1,19 +1,9 @@
-export type TagProduct = {
-    smartphone:string,
-     Apple:string,
-     iOS: string,
-}
 
-export type VProduct =  [
-        {
+
+export type VProduct =   {
             type: string,
             value: string,
-        },
-        {
-            type: string,
-            value: string
-        }
-    ];
+        };
 
     export type IProduct = {
         quantity: number,
@@ -27,7 +17,7 @@ export type Product ={
     description: string,
     price: number,
     category: string,
-    tags: [TagProduct],
+    tags: [string],
     variants: [ VProduct ],
     inventory: [IProduct],
 }
