@@ -15,6 +15,11 @@ const createProduct = (payload) => __awaiter(void 0, void 0, void 0, function* (
     const result = yield product_modules_1.productS.create(payload);
     return result;
 });
+const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_modules_1.productS.find();
+    return result;
+});
 exports.ProductService = {
     createProduct,
+    getAllProducts,
 };
