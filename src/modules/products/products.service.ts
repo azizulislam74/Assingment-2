@@ -6,12 +6,9 @@ const createProduct = async (payload :Product)=> {
     return result;
 };
 const getAllProducts = async (searchTerm?: string)=> {
-    // const result = await productS.find({searchTerm});
-    // return result;
-    if (searchTerm) {
-        // const product = await new ProductModel()
-        // const result = product.save()
     
+    if (searchTerm) {
+
         const product = await productS.find({ $or: [
             { name: { $regex: searchTerm, $options: 'i' } }, 
             { tags: { $in: [searchTerm] } }, 

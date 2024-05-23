@@ -23,7 +23,6 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { searchTerm } = req.query;
-        console.log();
         const result = yield products_service_1.ProductService.getAllProducts(searchTerm);
         res.status(200).json({
             success: true,

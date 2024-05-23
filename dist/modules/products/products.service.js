@@ -16,11 +16,7 @@ const createProduct = (payload) => __awaiter(void 0, void 0, void 0, function* (
     return result;
 });
 const getAllProducts = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
-    // const result = await productS.find({searchTerm});
-    // return result;
     if (searchTerm) {
-        // const product = await new ProductModel()
-        // const result = product.save()
         const product = yield product_modules_1.productS.find({ $or: [
                 { name: { $regex: searchTerm, $options: 'i' } },
                 { tags: { $in: [searchTerm] } },

@@ -19,7 +19,6 @@ res.json({
 const getAllProducts = async (req: Request,res:Response) => {
     try{
         const {searchTerm} = req.query;
-        console.log();
 
         const result = await ProductService.getAllProducts(searchTerm as string);
         
