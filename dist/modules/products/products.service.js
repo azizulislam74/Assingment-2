@@ -25,8 +25,15 @@ const getProductsById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(result);
     return result;
 });
+const updateProductsById = (id, product) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id);
+    const result = yield product_modules_1.productS.findByIdAndUpdate(id, product);
+    console.log(result);
+    return result;
+});
 exports.ProductService = {
     createProduct,
     getAllProducts,
     getProductsById,
+    updateProductsById,
 };
