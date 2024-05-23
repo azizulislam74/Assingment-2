@@ -22,17 +22,19 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 });
 const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield products_service_1.ProductService.getAllProducts();
+        const { searchTerm } = req.query;
+        console.log();
+        const result = yield products_service_1.ProductService.getAllProducts(searchTerm);
         res.status(200).json({
             success: true,
-            message: "Product fetched successfully!",
+            message: "Products matching search term 'iphone' fetched successfully!",
             data: result,
         });
     }
     catch (err) {
         res.status(500).json({
             success: false,
-            message: "Product fetched unsuccessfully!",
+            message: "Products matching search term 'iphone' fetched unsuccessfully!",
             error: err,
         });
     }
@@ -76,9 +78,30 @@ const updateProductsById = (req, res) => __awaiter(void 0, void 0, void 0, funct
         });
     }
 });
+const deletedProductsById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { productId } = req.params;
+        const product = req.body;
+        console.log(productId);
+        const result = yield products_service_1.ProductService.deletedProductsById(productId, product);
+        res.status(200).json({
+            success: true,
+            message: "Product deleted successfully",
+            data: result,
+        });
+    }
+    catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Product deleted unsuccessfully",
+            error: err,
+        });
+    }
+});
 exports.ProductControllers = {
     createProduct,
     getAllProducts,
     getProductsById,
     updateProductsById,
+    deletedProductsById,
 };

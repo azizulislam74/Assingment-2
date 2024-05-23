@@ -15,9 +15,23 @@ const createProduct = (payload) => __awaiter(void 0, void 0, void 0, function* (
     const result = yield product_modules_1.productS.create(payload);
     return result;
 });
-const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_modules_1.productS.find();
-    return result;
+const getAllProducts = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
+    // const result = await productS.find({searchTerm});
+    // return result;
+    if (searchTerm) {
+        // const product = await new ProductModel()
+        // const result = product.save()
+        const product = yield product_modules_1.productS.find({ $or: [
+                { name: { $regex: searchTerm, $options: 'i' } },
+                { tags: { $in: [searchTerm] } },
+                { description: { $regex: searchTerm, $options: 'i' } }
+            ] });
+        return product;
+    }
+    else {
+        const result = yield product_modules_1.productS.find();
+        return result;
+    }
 });
 const getProductsById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(id);
@@ -31,9 +45,16 @@ const updateProductsById = (id, product) => __awaiter(void 0, void 0, void 0, fu
     console.log(result);
     return result;
 });
+const deletedProductsById = (id, product) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id);
+    const result = yield product_modules_1.productS.findByIdAndDelete(id, product);
+    console.log(result);
+    return result;
+});
 exports.ProductService = {
     createProduct,
     getAllProducts,
     getProductsById,
     updateProductsById,
+    deletedProductsById,
 };
