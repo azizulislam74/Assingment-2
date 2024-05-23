@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderProduct = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
+// mongoose schema 
 const orderProductSchema = new mongoose_1.default.Schema({
     email: {
         type: String,

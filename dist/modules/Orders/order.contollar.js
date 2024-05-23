@@ -11,15 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderContollar = void 0;
 const order_service_1 = require("./order.service");
+//create order
 const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const orderData = req.body;
     const result = yield order_service_1.OrderService.createOrder(orderData);
     res.json({
         success: true,
-        message: 'Order created successfully!',
+        message: "Order created successfully!",
         data: result,
     });
 });
+// get all order
 const getAllOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const email = req.query;
@@ -31,6 +33,7 @@ const getAllOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
     }
     catch (err) {
+        // error handling
         res.status(500).json({
             success: false,
             message: "Orders fetched unsuccessfully!",

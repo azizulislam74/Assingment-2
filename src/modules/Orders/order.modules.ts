@@ -1,7 +1,7 @@
 import mongoose, { Schema, model } from 'mongoose';
 import { orderProduct } from './order.interface';
 
-
+// mongoose schema 
 const orderProductSchema = new mongoose.Schema({
     email: {
         type: String,

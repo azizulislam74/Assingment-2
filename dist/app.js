@@ -8,10 +8,11 @@ const product_router_1 = require("./modules/products/product.router");
 const body_parser_1 = __importDefault(require("body-parser"));
 const order_router_1 = require("./modules/Orders/order.router");
 const app = (0, express_1.default)();
-//Parsers 
-// app.use(express.json());
+//Parsers
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());
+// product router
 app.use("/api/products", product_router_1.ProductRoutes);
+// order router 
 app.use("/api/orders", order_router_1.OrderRouters);
 exports.default = app;

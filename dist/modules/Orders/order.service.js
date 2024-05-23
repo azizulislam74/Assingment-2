@@ -11,10 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderService = void 0;
 const order_modules_1 = require("./order.modules");
+// create order
 const createOrder = (placeOrder) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield order_modules_1.OrderProduct.create(placeOrder);
     return result;
 });
+// get all order here
 const getAllOrder = () => __awaiter(void 0, void 0, void 0, function* () {
     const productOrder = yield order_modules_1.OrderProduct.find();
     return productOrder;

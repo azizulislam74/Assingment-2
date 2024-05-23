@@ -2,18 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productS = void 0;
 const mongoose_1 = require("mongoose");
-// Define the TagProduct schema
-// Define the VProduct schema
+//  VProduct schema
 const vProductSchema = new mongoose_1.Schema({
     type: { type: String, required: true },
     value: { type: String, required: true },
 }, { _id: false });
-// Define the IProduct schema
+//  IProduct schema
 const iProductSchema = new mongoose_1.Schema({
     quantity: { type: Number, required: true },
     inStock: { type: Boolean, required: true },
 }, { _id: false });
-// Define the main Product schema
+// main Product schema
 const productSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -23,4 +22,4 @@ const productSchema = new mongoose_1.Schema({
     variants: [vProductSchema],
     inventory: [iProductSchema],
 });
-exports.productS = (0, mongoose_1.model)('Product', productSchema);
+exports.productS = (0, mongoose_1.model)("Product", productSchema);
