@@ -11,7 +11,9 @@ const getAllProducts = async ()=> {
 };
 
 const getProductsById = async (id:string)=> {
+    console.log(id);
     const result = await productS.findById(id);
+    console.log(result);
     return result;
 };
 

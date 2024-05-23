@@ -39,7 +39,9 @@ const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 const getProductsById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield products_service_1.ProductService.getProductsById();
+        const { productId } = req.params;
+        console.log(productId);
+        const result = yield products_service_1.ProductService.getProductsById(productId);
         res.status(200).json({
             success: true,
             message: "Product fetched successfully!",
@@ -57,4 +59,5 @@ const getProductsById = (req, res) => __awaiter(void 0, void 0, void 0, function
 exports.ProductControllers = {
     createProduct,
     getAllProducts,
+    getProductsById,
 };

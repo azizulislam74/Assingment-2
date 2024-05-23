@@ -19,7 +19,7 @@ res.json({
 const getAllProducts = async (req: Request,res:Response) => {
     try{
         const result = await ProductService.getAllProducts();
-
+        
         res.status(200).json({
             success: true,
             message:"Product fetched successfully!",
@@ -38,7 +38,9 @@ const getAllProducts = async (req: Request,res:Response) => {
 
 const getProductsById = async (req: Request,res:Response) => {
     try{
-        const result = await ProductService.getProductsById();
+        const {productId} =req.params;
+        console.log(productId);
+        const result = await ProductService.getProductsById(productId);
 
         res.status(200).json({
             success: true,
@@ -59,4 +61,5 @@ const getProductsById = async (req: Request,res:Response) => {
 export const ProductControllers = {
    createProduct, 
    getAllProducts,
+   getProductsById,
 }

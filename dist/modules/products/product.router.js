@@ -9,5 +9,5 @@ const product_contollar_1 = require("./product.contollar");
 const router = express_1.default.Router();
 router.post('/', product_contollar_1.ProductControllers.createProduct);
 router.get('/', product_contollar_1.ProductControllers.getAllProducts);
-router.get('/:productId', product_contollar_1.ProductControllers.getAllProducts);
+router.get('/:productId', product_contollar_1.ProductControllers.getProductsById);
 exports.ProductRoutes = router;

@@ -20,7 +20,9 @@ const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 const getProductsById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id);
     const result = yield product_modules_1.productS.findById(id);
+    console.log(result);
     return result;
 });
 exports.ProductService = {
