@@ -17,8 +17,8 @@ const createOrder = (placeOrder) => __awaiter(void 0, void 0, void 0, function* 
     return result;
 });
 // get all order here
-const getAllOrder = () => __awaiter(void 0, void 0, void 0, function* () {
-    const productOrder = yield order_modules_1.OrderProduct.find();
+const getAllOrder = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const productOrder = yield order_modules_1.OrderProduct.find(email);
     return productOrder;
 });
 exports.OrderService = {

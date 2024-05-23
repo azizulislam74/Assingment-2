@@ -7,8 +7,8 @@ const createOrder = async (placeOrder: orderProduct) => {
   return result;
 };
 // get all order here
-const getAllOrder = async () => {
-  const productOrder = await OrderProduct.find();
+const getAllOrder = async (email:object) => {
+  const productOrder = await OrderProduct.find(email);
   return productOrder;
 };
 
